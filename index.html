@@ -1,0 +1,166 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>my demo list</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font-size: 16px;
+			font-family: "微软雅黑";
+			background-color: rgb(239,239,239);
+		}
+		.container {
+			margin: 60px auto;
+		}
+		h2 {
+			margin-bottom: 10px;
+			text-align: center;
+			color: rgb(49,49,49);
+		}
+		ul.main_list {
+			position: relative;
+			width: 1200px;
+			margin: 0 auto;
+		}
+		ul.main_list li {
+			margin-bottom: 5px;
+			text-align: left;
+			list-style-type: none;
+			height: 40px;
+			line-height: 40px;
+			border: 1px solid green;
+			background-color: #FFF;
+			border-radius: 4px;
+			color: gray;
+		}
+		ul.main_list li:hover {
+			background-color: green;
+			border: 1px solid #FFF;
+			border-radius: 4px;
+			cursor: pointer;
+			color: #FFF;
+		}
+		ul.main_list > li:hover {
+			color: #FFF;
+		}
+		ul.main_list a {			
+			padding-left: 20px;
+			display: inline-block;
+			width: 1200px;
+			color: gray;
+			text-decoration: none;
+		}
+		ul.main_list a:hover {			
+			display: inline-block;
+			width: 1200px;
+			color: #FFF;
+			text-decoration: none;
+		}
+		#first_child_li {
+			position: relative;
+			height: auto;
+			border: 0;
+		}
+		#first_child_li:hover {
+			border: 0;
+			background-color: #FFF;
+		}
+		#first_child_li span {
+			padding-left: 20px;
+			display: block;
+			width: 1180px;
+			margin-bottom: 5px;
+			text-align: left;
+			height: 40px;
+			line-height: 40px;
+			border: 1px solid green;
+			background-color: #FFF;
+			border-radius: 4px;
+			color: gray;
+		}
+		#first_child_li span:hover {
+			background-color: green;
+			border: 1px solid #FFF;
+			border-radius: 4px;
+			cursor: pointer;
+			color: #FFF;
+		}
+/*		#first_child_li > li:last-child {
+			margin-bottom: 5px;
+		}*/
+		.hidden {
+			display: none;
+		}
+		.visited {
+			display: block;
+		}
+/*		:after, :before {
+		    -webkit-box-sizing: border-box;
+		    -moz-box-sizing: border-box;
+		    box-sizing: border-box;
+		}*/
+/*		.main_list li:before,.main_list li:after {
+			content: '';
+		    left: 15px;
+		    position: absolute;
+		    right: auto;
+		}*/
+		/*竖线,要使竖线有li的子ul全长，就不能给li设置高度*/
+/*		.main_list li:before {
+			border-left: 1px solid red;
+		    bottom: 50px;
+		    height: 100%;
+		    top: 0;
+		    width: 1px;
+		}*/
+		/*横线*/
+/*		#first_child_list > li:after {
+			border-top: 1px solid blue;
+		    height: 20px;
+		    top: 25px;
+		    width: 35px;
+		}
+		.main_list > li:before,.main_list > li:after {
+			border: 0;
+		}*/
+		#first_child_list {
+			margin-top: 5px;
+			width: 1138px;
+			margin-left: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>My Demo List</h2>
+		<ul class="main_list">
+			<li><a rel="external nofollow" href="https://fifththirteen.github.io/browserList-demo/" title="游览器博物馆" target="_blank">1.&nbsp;&nbsp;&nbsp;bootstrap实现响应式-游览器博物馆</a></li>
+			<li><a rel="external nofollow" href="https://fifththirteen.github.io/css3-pictureShow/" title="照片墙" target="_blank">2.&nbsp;&nbsp;&nbsp;css3实现-照片墙</a></li>
+			<li><a rel="external nofollow" href="https://fifththirteen.github.io/domtest/" title="DOM-test-demo" target="_blank">3.&nbsp;&nbsp;&nbsp;DOM-test-demo</a></li>
+			<li id="first_child_li"><span>4.&nbsp;&nbsp;&nbsp;轮播图</span>
+				<ul class="hidden" id="first_child_list">
+					<li><a rel="external nofollow" href="https://fifththirteen.github.io/banner_transition/demo.html" title="原生JS实现轮播图" target="_blank">原生JS实现轮播图</a></li>
+					<li><a rel="external nofollow" href="https://fifththirteen.github.io/banner_transition/demo-jq.html" title="jQuery实现轮播图" target="_blank">jQuery实现轮播图</a></li>
+					<li><a rel="external nofollow" href="https://fifththirteen.github.io/banner_transition/demo-transition.html" title="jQuery实现轮播图,css3-transition实现动画" target="_blank">jQuery实现轮播图,css3-transition实现动画</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		window.onload=function(){
+			var first_li = document.getElementById('first_child_li');
+			var first_list = document.getElementById('first_child_list');
+			first_li.onclick=function(){
+				if (first_list.getAttribute("class") == "hidden") {
+					first_list.setAttribute("class","visited");
+				} else if (first_list.getAttribute("class") == "visited") {
+					first_list.setAttribute("class","hidden");
+				}
+			}
+		}
+	</script>
+</body>
+</html>
