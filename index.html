@@ -26,110 +26,115 @@
 			margin: 0 auto;
 		}
 		ul.main_list li {
-			margin-bottom: 5px;
-			text-align: left;
 			list-style-type: none;
+		}
+		ul.main_list > li > a {
+			padding-left: 20px;		
+			margin-bottom: 5px;	
+			display: inline-block;
+			width: 1200px;
+			color: gray;
 			height: 40px;
 			line-height: 40px;
 			border: 1px solid green;
-			background-color: #FFF;
+			text-decoration: none;
 			border-radius: 4px;
 			color: gray;
+			background-color: #FFF;
 		}
-		ul.main_list li:hover {
+		ul.main_list > li > a:hover {			
+			display: inline-block;
+			width: 1200px;
+			color: #FFF;
 			background-color: green;
-			border: 1px solid #FFF;
-			border-radius: 4px;
-			cursor: pointer;
-			color: #FFF;
+			text-decoration: none;
 		}
-		ul.main_list > li:hover {
-			color: #FFF;
-		}
-		ul.main_list a {			
+		.parent_li span {
 			padding-left: 20px;
 			display: inline-block;
 			width: 1200px;
-			color: gray;
-			text-decoration: none;
-		}
-		ul.main_list a:hover {			
-			display: inline-block;
-			width: 1200px;
-			color: #FFF;
-			text-decoration: none;
-		}
-		#first_child_li {
-			position: relative;
-			height: auto;
-			border: 0;
-		}
-		#first_child_li:hover {
-			border: 0;
-			background-color: #FFF;
-		}
-		#first_child_li span {
-			padding-left: 20px;
-			display: block;
-			width: 1180px;
 			margin-bottom: 5px;
 			text-align: left;
 			height: 40px;
 			line-height: 40px;
-			border: 1px solid green;
 			background-color: #FFF;
 			border-radius: 4px;
 			color: gray;
+			border: 1px solid green;
 		}
-		#first_child_li span:hover {
+		.parent_li span:hover {
 			background-color: green;
+			border: 1px solid green;
 			border: 1px solid #FFF;
 			border-radius: 4px;
 			cursor: pointer;
 			color: #FFF;
 		}
-/*		#first_child_li > li:last-child {
+		.parent_li  a {
+			padding-left: 20px;
+			display: inline-block;
+			width: 1160px;
+			margin-left: 40px;
 			margin-bottom: 5px;
-		}*/
+			text-align: left;
+			height: 40px;
+			line-height: 40px;
+			background-color: #FFF;
+			border-radius: 4px;
+			color: gray;
+			border: 1px solid green;
+			text-decoration: none;
+		}
+		.parent_li  a:hover {
+			padding-left: 20px;
+			display: inline-block;
+			width: 1160px;
+			margin-left: 40px;
+			margin-bottom: 5px;
+			background-color: green;
+			border: 1px solid green;
+			border: 1px solid #FFF;
+			border-radius: 4px;
+			cursor: pointer;
+			color: #FFF;
+			text-decoration: none;
+		}
 		.hidden {
 			display: none;
 		}
 		.visited {
 			display: block;
 		}
-/*		:after, :before {
+		:after, :before {
 		    -webkit-box-sizing: border-box;
 		    -moz-box-sizing: border-box;
 		    box-sizing: border-box;
-		}*/
-/*		.main_list li:before,.main_list li:after {
+		}
+		.container ul {
+			position: relative;
+		}
+		.container li:before,.container li:after {
 			content: '';
-		    left: 15px;
+		    left: 20px;
 		    position: absolute;
 		    right: auto;
-		}*/
-		/*竖线,要使竖线有li的子ul全长，就不能给li设置高度*/
-/*		.main_list li:before {
-			border-left: 1px solid red;
-		    bottom: 50px;
-		    height: 100%;
-		    top: 0;
-		    width: 1px;
-		}*/
-		/*横线*/
-/*		#first_child_list > li:after {
-			border-top: 1px solid blue;
-		    height: 20px;
-		    top: 25px;
-		    width: 35px;
 		}
-		.main_list > li:before,.main_list > li:after {
+		/*竖线*/
+		.container li:before {
+		    border-left: 1px solid red;
+		    height: 100%;
+		    width: 1px;
+		    bottom: 5px;
+		}
+		/*横线*/
+		.container li:after {
+			border-top: 1px solid blue;
+		    width: 20px;
+		    height: 1px;
+		    /*top: 20px;*/
+		}
+		.container > ul > li:before,.container > ul > li:after {
 			border: 0;
-		}*/
-		#first_child_list {
-			margin-top: 5px;
-			width: 1138px;
-			margin-left: 40px;
 		}
 	</style>
 </head>
@@ -140,7 +145,7 @@
 			<li><a rel="external nofollow" href="https://fifththirteen.github.io/browserList-demo/" title="游览器博物馆" target="_blank">1.&nbsp;&nbsp;&nbsp;bootstrap实现响应式-游览器博物馆</a></li>
 			<li><a rel="external nofollow" href="https://fifththirteen.github.io/css3-pictureShow/" title="照片墙" target="_blank">2.&nbsp;&nbsp;&nbsp;css3实现-照片墙</a></li>
 			<li><a rel="external nofollow" href="https://fifththirteen.github.io/domtest/" title="DOM-test-demo" target="_blank">3.&nbsp;&nbsp;&nbsp;DOM-test-demo</a></li>
-			<li id="first_child_li"><span>4.&nbsp;&nbsp;&nbsp;轮播图</span>
+			<li id="first_child_li" class="parent_li"><span>4.&nbsp;&nbsp;&nbsp;轮播图</span>
 				<ul class="hidden" id="first_child_list">
 					<li><a rel="external nofollow" href="https://fifththirteen.github.io/banner_transition/demo.html" title="原生JS实现轮播图" target="_blank">原生JS实现轮播图</a></li>
 					<li><a rel="external nofollow" href="https://fifththirteen.github.io/banner_transition/demo-jq.html" title="jQuery实现轮播图" target="_blank">jQuery实现轮播图</a></li>
