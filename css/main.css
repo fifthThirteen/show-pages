@@ -1,0 +1,131 @@
+@charset "utf-8";
+body {
+	font-size: 16px;
+	font-family: "微软雅黑";
+	background-color: rgb(239,239,239);
+	overflow-x: hidden;
+}
+.container {
+	margin: 60px auto;
+}
+h2 {
+	margin-bottom: 10px;
+	text-align: center;
+	color: rgb(49,49,49);
+}
+ul.main_list {
+	position: relative;
+	width: 1200px;
+	margin: 0 auto;
+}
+ul.main_list li {
+	list-style-type: none;
+}
+ul.main_list > li > a {
+	padding-left: 20px;		
+	margin-bottom: 5px;	
+	display: inline-block;
+	width: 1200px;
+	color: gray;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid green;
+	text-decoration: none;
+	border-radius: 4px;
+	color: gray;
+	background-color: #FFF;
+}
+ul.main_list > li > a:hover {			
+	display: inline-block;
+	width: 1200px;
+	color: #FFF;
+	background-color: green;
+	text-decoration: none;
+}
+.parent_li span {
+	padding-left: 20px;
+	display: inline-block;
+	width: 1200px;
+	margin-bottom: 5px;
+	text-align: left;
+	height: 40px;
+	line-height: 40px;
+	background-color: #FFF;
+	border-radius: 4px;
+	color: gray;
+	border: 1px solid green;
+}
+.parent_li span:hover {
+	background-color: green;
+	border: 1px solid green;
+	border: 1px solid #FFF;
+	border-radius: 4px;
+	cursor: pointer;
+	color: #FFF;
+}
+.parent_li  a {
+	padding-left: 20px;
+	display: inline-block;
+	width: 1160px;
+	margin-left: 40px;
+	margin-bottom: 5px;
+	text-align: left;
+	height: 40px;
+	line-height: 40px;
+	background-color: #FFF;
+	border-radius: 4px;
+	color: gray;
+	border: 1px solid green;
+	text-decoration: none;
+}
+.parent_li  a:hover {
+	padding-left: 20px;
+	display: inline-block;
+	width: 1160px;
+	margin-left: 40px;
+	margin-bottom: 5px;
+	background-color: green;
+	border: 1px solid green;
+	border: 1px solid #FFF;
+	border-radius: 4px;
+	cursor: pointer;
+	color: #FFF;
+	text-decoration: none;
+}
+.hidden {
+	display: none;
+}
+.visited {
+	display: block;
+}
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.parent_li ul li {
+	position: relative;
+}
+.container li:before,.container li:after {
+	content: '';
+    left: 20px;
+    position: absolute;
+    right: auto;
+}
+/*竖线*/
+.container li:before {
+    border-left: 1px solid green;
+    height: 100%;
+    width: 1px;
+    bottom: 5px;
+}
+/*横线*/
+.container li:after {
+	border-top: 1px solid green;
+    width: 20px;
+    height: 1px;
+    top: 20px;
+}
+.container > ul > li:before,.container > ul > li:after {
+	border: 0;
+}

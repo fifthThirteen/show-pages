@@ -1,143 +1,15 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 	<title>my demo list</title>
-	<style type="text/css">
-		* {
-			margin: 0;
-			padding: 0;
-		}
-		body {
-			font-size: 16px;
-			font-family: "微软雅黑";
-			background-color: rgb(239,239,239);
-			overflow-x: hidden;
-		}
-		.container {
-			margin: 60px auto;
-		}
-		h2 {
-			margin-bottom: 10px;
-			text-align: center;
-			color: rgb(49,49,49);
-		}
-		ul.main_list {
-			position: relative;
-			width: 1200px;
-			margin: 0 auto;
-		}
-		ul.main_list li {
-			list-style-type: none;
-		}
-		ul.main_list > li > a {
-			padding-left: 20px;		
-			margin-bottom: 5px;	
-			display: inline-block;
-			width: 1200px;
-			color: gray;
-			height: 40px;
-			line-height: 40px;
-			border: 1px solid green;
-			text-decoration: none;
-			border-radius: 4px;
-			color: gray;
-			background-color: #FFF;
-		}
-		ul.main_list > li > a:hover {			
-			display: inline-block;
-			width: 1200px;
-			color: #FFF;
-			background-color: green;
-			text-decoration: none;
-		}
-		.parent_li span {
-			padding-left: 20px;
-			display: inline-block;
-			width: 1200px;
-			margin-bottom: 5px;
-			text-align: left;
-			height: 40px;
-			line-height: 40px;
-			background-color: #FFF;
-			border-radius: 4px;
-			color: gray;
-			border: 1px solid green;
-		}
-		.parent_li span:hover {
-			background-color: green;
-			border: 1px solid green;
-			border: 1px solid #FFF;
-			border-radius: 4px;
-			cursor: pointer;
-			color: #FFF;
-		}
-		.parent_li  a {
-			padding-left: 20px;
-			display: inline-block;
-			width: 1160px;
-			margin-left: 40px;
-			margin-bottom: 5px;
-			text-align: left;
-			height: 40px;
-			line-height: 40px;
-			background-color: #FFF;
-			border-radius: 4px;
-			color: gray;
-			border: 1px solid green;
-			text-decoration: none;
-		}
-		.parent_li  a:hover {
-			padding-left: 20px;
-			display: inline-block;
-			width: 1160px;
-			margin-left: 40px;
-			margin-bottom: 5px;
-			background-color: green;
-			border: 1px solid green;
-			border: 1px solid #FFF;
-			border-radius: 4px;
-			cursor: pointer;
-			color: #FFF;
-			text-decoration: none;
-		}
-		.hidden {
-			display: none;
-		}
-		.visited {
-			display: block;
-		}
-		:after, :before {
-		    -webkit-box-sizing: border-box;
-		    -moz-box-sizing: border-box;
-		    box-sizing: border-box;
-		}
-		.parent_li ul li {
-			position: relative;
-		}
-		.container li:before,.container li:after {
-			content: '';
-		    left: 20px;
-		    position: absolute;
-		    right: auto;
-		}
-		/*竖线*/
-		.container li:before {
-		    border-left: 1px solid green;
-		    height: 100%;
-		    width: 1px;
-		    bottom: 5px;
-		}
-		/*横线*/
-		.container li:after {
-			border-top: 1px solid green;
-		    width: 20px;
-		    height: 1px;
-		    top: 20px;
-		}
-		.container > ul > li:before,.container > ul > li:after {
-			border: 0;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--[if lte IE 9]>
+	        <script src="/js/html5shiv.js"></script>  
+			<script src="/js/respond.min.js"></script>  	
+	<![endif]-->
 </head>
 <body>
 	<div class="container">
@@ -161,37 +33,6 @@
 			</li>
 		</ul>
 	</div>
-	<script type="text/javascript">
-		window.onload=function(){
-			document.body.style.width = window.screen.width;
-			var parent_lis = getClassName("parent_li");
-			for (var i = 0,pl=parent_lis.length; i < pl;i++) {
-				parent_lis[i].onclick = function(){
-					// console.log(this.children[1])
-					 if (this.children[1].getAttribute("class").indexOf("hidden") != -1) {
-					 	this.children[1].setAttribute("class","visited");
-					 } else if (this.children[1].getAttribute("class").indexOf("visited") != -1) {
-					 	this.children[1].setAttribute("class","hidden");
-					 }
-				}
-			}
-		}
-		// 兼容性解决方法
-			function getClassName(abc){
-				if (!document.getElementsByClassName) {
-					var list=document.getElementsByTagName('*');
-					var arr=[];
-					for (var i = 0; i < list.length; i++) {
-						if(list[i].className == abc){
-							//在浏览器版本不支持该方法时使用className属性
-							arr.push(list[i]);
-						}
-					}
-					return arr;
-				} else {
-					return document.getElementsByClassName(abc);
-				}
-			}
-	</script>
+	<script src="js/index.js"></script>
 </body>
 </html>
