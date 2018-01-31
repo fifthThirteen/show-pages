@@ -39,8 +39,17 @@ ul.main_list > li > a:hover {
 	display: inline-block;
 	width: 1200px;
 	color: #FFF;
-	background-color: green;
+	/*background-color: green;*/
 	text-decoration: none;
+	text-indent: 20px;
+	transition: text-indent 1s;
+	-webkit-transition:text-indent 1s;
+	-o-transition:text-indent 1s;
+	-moz-transition:text-indent 1s;
+	background-image:-webkit-linear-gradient(left,#62c462,#51a351);
+	background-image:-moz-linear-gradient(right,#62c462,#51a351);
+	background-image:-o-linear-gradient(right,#62c462,#51a351);
+	background-image:linear-gradient(to right,#62c462,#51a351);
 }
 .parent_li span {
 	padding-left: 20px;
@@ -62,6 +71,15 @@ ul.main_list > li > a:hover {
 	border-radius: 4px;
 	cursor: pointer;
 	color: #FFF;
+	text-indent: 20px;
+	transition: text-indent 1s;
+	-webkit-transition:text-indent 1s;
+	-o-transition:text-indent 1s;
+	-moz-transition:text-indent 1s;
+	background-image:-webkit-linear-gradient(left,#62c462,#51a351);
+	background-image:-moz-linear-gradient(right,#62c462,#51a351);
+	background-image:-o-linear-gradient(right,#62c462,#51a351);
+	background-image:linear-gradient(to right,#62c462,#51a351);
 }
 .parent_li  a {
 	padding-left: 20px;
@@ -91,6 +109,15 @@ ul.main_list > li > a:hover {
 	cursor: pointer;
 	color: #FFF;
 	text-decoration: none;
+	text-indent: 20px;
+	transition: text-indent 1s;
+	-webkit-transition:text-indent 1s;
+	-o-transition:text-indent 1s;
+	-moz-transition:text-indent 1s;
+	background-image:-webkit-linear-gradient(left,#62c462,#51a351);
+	background-image:-moz-linear-gradient(right,#62c462,#51a351);
+	background-image:-o-linear-gradient(right,#62c462,#51a351);
+	background-image:linear-gradient(to right,#62c462,#51a351);
 }
 .hidden {
 	display: none;
