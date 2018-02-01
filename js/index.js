@@ -10,7 +10,7 @@ window.onload=function(){
 			} else {
 				ii.classList.remove('on');
 			}
-			console.log(this.children[0].classList);
+			// console.log(this.children[0].classList);
 			var ul = this.nextElementSibling;
 			if (ul.getAttribute('class').indexOf('hidden') != -1) {
 				ul.setAttribute('class','visited');
