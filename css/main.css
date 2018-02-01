@@ -11,7 +11,9 @@ body {
 h2 {
 	margin-bottom: 10px;
 	text-align: center;
-	color: rgb(49,49,49);
+    font-size: 30px;
+    color: green;
+    text-shadow: 5px 5px 5px #51a351;
 }
 ul.main_list {
 	position: relative;

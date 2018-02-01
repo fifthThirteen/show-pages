@@ -13,7 +13,7 @@ window.onload=function(){
 		}
 	}
 }
-// 兼容性解决方法
+// 兼容性解决方法 querySelectorAll 
 	function getClassName(abc){
 		if (!document.getElementsByClassName) {
 			var list=document.getElementsByTagName('*');
