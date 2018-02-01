@@ -4,6 +4,13 @@ window.onload=function(){
 	var span_lis = document.getElementById("main_list").getElementsByTagName("span");
 	for (var i = 0,sl=span_lis.length; i < sl;i++) {
 		span_lis[i].onclick = function() {
+			var ii = this.children[0];
+			if (ii.classList == '') {
+				ii.classList.add('on');
+			} else {
+				ii.classList.remove('on');
+			}
+			console.log(this.children[0].classList);
 			var ul = this.nextElementSibling;
 			if (ul.getAttribute('class').indexOf('hidden') != -1) {
 				ul.setAttribute('class','visited');

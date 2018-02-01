@@ -1,0 +1,70 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<style type="text/css">
+	.triangle{
+	    width:30px;
+	    height:30px;
+	    border-width:20px;
+	    border-style:solid;
+	    border-color:#e66161 #f3bb5b #94e24f #85bfda;
+	}
+	.triangle1{
+	    width:0;
+	    height:0;
+	    border-width:20px;
+	    border-style:solid;
+	    border-color:#e66161 #f3bb5b #94e24f #85bfda;
+	}
+	.triangle2{
+	    width:0;
+	    height:0;
+	    border-width:20px;
+	    border-style:solid dashed dashed dashed;
+	    border-color:#e66161 transparent transparent transparent;
+	}
+
+	.message-box {
+	    position:relative;
+	    width:240px;
+	    height:60px;
+	    line-height:60px;
+	    background:#E9FBE4;
+	    box-shadow:1px 2px 3px #E9FBE4;
+	    border:1px solid #C9E9C0;
+	    border-radius:4px;
+	    text-align:center;
+	    color:#0C7823;
+	}
+	.triangle-border {
+	    position:absolute;
+	    left:30px;
+	    overflow:hidden;
+	    width:0;
+	    height:0;
+	    border-width:10px;
+	    border-style:solid dashed dashed dashed;
+	}
+	.tb-border {
+	    bottom:-20px;
+	    border-color:#C9E9C0 transparent transparent transparent;
+	}
+	.tb-background {
+	    bottom:-19px;
+	    border-color:#E9FBE4 transparent transparent transparent;
+	}
+</style>
+<body>
+<div class="triangle"></div>
+<div class="triangle1"></div>
+<div class="triangle2"></div>
+<div class="message-box">
+  <span>我是利用 border 属性实现的</span>
+  <div class="triangle-border tb-border"></div>
+  <div class="triangle-border tb-background"></div>
+</div>
+</body>
+</html>
+

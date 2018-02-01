@@ -52,8 +52,7 @@ ul.main_list li a:hover {
 	background-image:-o-linear-gradient(right,#62c462,#51a351);
 	background-image:linear-gradient(to right,#62c462,#51a351);
 }
-.parent_li span {
-	padding-left: 20px;
+.parent_li span {	padding-left: 20px;
 	display: inline-block;
 	margin-bottom: 5px;
 	text-align: left;
@@ -79,6 +78,33 @@ ul.main_list li a:hover {
 	background-image:-moz-linear-gradient(right,#62c462,#51a351);
 	background-image:-o-linear-gradient(right,#62c462,#51a351);
 	background-image:linear-gradient(to right,#62c462,#51a351);
+}
+.parent_li span:hover i {
+    border-color: transparent transparent transparent #FFF;
+    margin-right: 5px;
+}
+.parent_li span i {
+	margin-left: -10px;
+	display: inline-block;
+    width:0;
+    height:0;
+    border-width:5px;
+    border-style:solid dashed dashed dashed;
+    border-color: transparent transparent transparent gray;
+}
+.parent_li span i.on {
+	margin-left: -15px;
+    margin-right: 5px;
+	display: inline-block;
+    width:0;
+    height:0;
+    border-width:5px;
+    border-style:solid dashed dashed dashed;
+    border-color: gray transparent transparent transparent;
+}
+.parent_li span:hover i.on {
+    border-color: #FFF transparent transparent transparent;
+    margin-right: 10px;
 }
 /*第一级parent_li样式*/
 .main_list > .parent_li > span {
