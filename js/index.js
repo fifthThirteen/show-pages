@@ -1,15 +1,15 @@
 
 window.onload=function(){
 	document.body.style.width = window.screen.width;
-	var parent_lis = getClassName("parent_li");
-	for (var i = 0,pl=parent_lis.length; i < pl;i++) {
-		parent_lis[i].onclick = function(){
-			// console.log(this.children[1])
-			 if (this.children[1].getAttribute("class").indexOf("hidden") != -1) {
-			 	this.children[1].setAttribute("class","visited");
-			 } else if (this.children[1].getAttribute("class").indexOf("visited") != -1) {
-			 	this.children[1].setAttribute("class","hidden");
-			 }
+	var span_lis = document.getElementById("main_list").getElementsByTagName("span");
+	for (var i = 0,sl=span_lis.length; i < sl;i++) {
+		span_lis[i].onclick = function() {
+			var ul = this.nextElementSibling;
+			if (ul.getAttribute('class').indexOf('hidden') != -1) {
+				ul.setAttribute('class','visited');
+			} else if (ul.className == 'visited') {
+				ul.className = 'hidden';
+			}
 		}
 	}
 }

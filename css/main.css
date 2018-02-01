@@ -23,7 +23,7 @@ ul.main_list {
 ul.main_list li {
 	list-style-type: none;
 }
-ul.main_list > li > a {
+ul.main_list li a {
 	padding-left: 20px;		
 	margin-bottom: 5px;	
 	display: inline-block;
@@ -34,14 +34,13 @@ ul.main_list > li > a {
 	border: 1px solid green;
 	text-decoration: none;
 	border-radius: 4px;
-	color: gray;
 	background-color: #FFF;
 }
-ul.main_list > li > a:hover {			
+
+ul.main_list li a:hover {			
 	display: inline-block;
 	width: 1200px;
 	color: #FFF;
-	/*background-color: green;*/
 	text-decoration: none;
 	text-indent: 20px;
 	transition: text-indent 1s;
@@ -56,7 +55,6 @@ ul.main_list > li > a:hover {
 .parent_li span {
 	padding-left: 20px;
 	display: inline-block;
-	width: 1200px;
 	margin-bottom: 5px;
 	text-align: left;
 	height: 40px;
@@ -69,7 +67,6 @@ ul.main_list > li > a:hover {
 .parent_li span:hover {
 	background-color: green;
 	border: 1px solid green;
-	border: 1px solid #FFF;
 	border-radius: 4px;
 	cursor: pointer;
 	color: #FFF;
@@ -82,44 +79,28 @@ ul.main_list > li > a:hover {
 	background-image:-moz-linear-gradient(right,#62c462,#51a351);
 	background-image:-o-linear-gradient(right,#62c462,#51a351);
 	background-image:linear-gradient(to right,#62c462,#51a351);
+}
+/*第一级parent_li样式*/
+.main_list > .parent_li > span {
+	width: 1200px;
+}
+
+/*第二级parent_li样式*/
+.visited > .parent_li > span {
+	width: 1160px;
+	margin-left: 40px;
 }
 .parent_li  a {
-	padding-left: 20px;
-	display: inline-block;
-	width: 1160px;
+	width: 1160px !important;
 	margin-left: 40px;
-	margin-bottom: 5px;
-	text-align: left;
-	height: 40px;
-	line-height: 40px;
-	background-color: #FFF;
-	border-radius: 4px;
-	color: gray;
-	border: 1px solid green;
-	text-decoration: none;
 }
-.parent_li  a:hover {
-	padding-left: 20px;
-	display: inline-block;
-	width: 1160px;
-	margin-left: 40px;
-	margin-bottom: 5px;
-	background-color: green;
-	border: 1px solid green;
-	border: 1px solid #FFF;
-	border-radius: 4px;
-	cursor: pointer;
-	color: #FFF;
-	text-decoration: none;
-	text-indent: 20px;
-	transition: text-indent 1s;
-	-webkit-transition:text-indent 1s;
-	-o-transition:text-indent 1s;
-	-moz-transition:text-indent 1s;
-	background-image:-webkit-linear-gradient(left,#62c462,#51a351);
-	background-image:-moz-linear-gradient(right,#62c462,#51a351);
-	background-image:-o-linear-gradient(right,#62c462,#51a351);
-	background-image:linear-gradient(to right,#62c462,#51a351);
+/*第三级*/
+.parent_li .parent_li a {
+	width: 1120px !important;
+	margin-left: 80px;
+}
+.visited > .parent_li > a {
+	width: 1120px;
 }
 .hidden {
 	display: none;
@@ -141,12 +122,15 @@ ul.main_list > li > a:hover {
     position: absolute;
     right: auto;
 }
+.visited > .parent_li li:before, .visited > .parent_li li:after{
+	left: 60px;
+}
 /*竖线*/
 .container li:before {
     border-left: 1px solid green;
     height: 100%;
     width: 1px;
-    bottom: 5px;
+    top: -5px;
 }
 /*横线*/
 .container li:after {
@@ -155,6 +139,11 @@ ul.main_list > li > a:hover {
     height: 1px;
     top: 20px;
 }
+/*首层li的边框线设置为白色*/
 .container > ul > li:before,.container > ul > li:after {
 	border: 0;
+}
+/*每个ul中的最后一个li的竖线设置固定高，然后top到顶端，使前层li的竖线变短*/
+.container li:last-child:before {
+    height: 30px;
 }
