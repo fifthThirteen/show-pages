@@ -21,18 +21,33 @@ window.onload=function(){
 	}
 }
 // 兼容性解决方法 querySelectorAll 
-	function getClassName(abc){
-		if (!document.getElementsByClassName) {
-			var list=document.getElementsByTagName('*');
-			var arr=[];
-			for (var i = 0; i < list.length; i++) {
-				if(list[i].className == abc){
-					//在浏览器版本不支持该方法时使用className属性
-					arr.push(list[i]);
-				}
+function getClassName(abc){
+	if (!document.getElementsByClassName) {
+		var list=document.getElementsByTagName('*');
+		var arr=[];
+		for (var i = 0; i < list.length; i++) {
+			if(list[i].className == abc){
+				//在浏览器版本不支持该方法时使用className属性
+				arr.push(list[i]);
 			}
-			return arr;
-		} else {
-			return document.getElementsByClassName(abc);
 		}
+		return arr;
+	} else {
+		return document.getElementsByClassName(abc);
 	}
+}
+
+// var scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
+$(window).scroll(function(){
+    // if ($(window).scrollTop()>100){
+    //     $("#go_to_top").slideDown(500);
+    // }else{
+    //     $("#go_to_top").slideUp(500);
+    // }
+    $(window).scrollTop()>100 && $("#go_to_top").slideDown(500) || $("#go_to_top").slideUp(500);
+});
+//当点击跳转链接后，回到页面顶部位置
+$("#go_to_top").click(function(){
+    $('body,html').animate({scrollTop:0},500);
+    return false;
+});
