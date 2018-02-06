@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<title>my demo list</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--[if lte IE 9]>
+	        <script src="/js/html5shiv.js"></script>  
+			<script src="/js/respond.min.js"></script>  	
+	<![endif]-->
+</head>
+<body>
+	<div class="container">
+		<h2>My Demo List</h2>
+		<ul class="main_list" id="main_list">
+			<!-- <li class="parent_li"><span><i></i>1.&nbsp;&nbsp;&nbsp;bootstrap实现响应式</span>
+				<ul class="hidden">
+					<li><a rel="external nofollow" href="https://fifththirteen.github.io/browserList-demo/" title="游览器博物馆" target="_blank">游览器博物馆</a></li>
+					<li class="parent_li"><span><i></i>移动端商城</span>
+						<ul class="hidden">
+							<li><a rel="external nofollow" href="https://fifththirteen.github.io/phonePage/index.html" title="主页" target="_blank">主页</a></li>
+							<li><a rel="external nofollow" href="https://fifththirteen.github.io/phonePage/financeCenter.html" title="佣金提现" target="_blank">佣金提现</a></li>
+							<li><a rel="external nofollow" href="https://fifththirteen.github.io/phonePage/membersList.html" title="我的会员" target="_blank">我的会员</a></li>
+							<li><a rel="external nofollow" href="https://fifththirteen.github.io/phonePage/login.html" title="登录" target="_blank">登录</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a rel="external nofollow" href="https://fifththirteen.github.io/css3-pictureShow/" title="照片墙" target="_blank">2.&nbsp;&nbsp;&nbsp;css3实现-照片墙</a></li>
+			<li><a rel="external nofollow" href="https://fifththirteen.github.io/domtest/" title="DOM-test-demo" target="_blank">3.&nbsp;&nbsp;&nbsp;DOM-test-demo</a></li>
+			<li class="parent_li"><span><i></i>4.&nbsp;&nbsp;&nbsp;JS常用效果</span>
+				<ul class="hidden">
+					<li class="parent_li"><span><i></i>轮播图</span>
+						<ul class="hidden">
+							<li><a rel="external nofollow" href="https://fifththirteen.github.io/banner_transition/demo.html" title="原生JS实现轮播图" target="_blank">原生JS实现轮播图</a></li>
+							<li><a rel="external nofollow" href="https://fifththirteen.github.io/banner_transition/demo-change.html" title="原生JS实现选项卡轮播图" target="_blank">原生JS实现选项卡轮播图</a></li>
+							<li><a rel="external nofollow" href="https://fifththirteen.github.io/banner_transition/demo-jq.html" title="jQuery实现轮播图" target="_blank">jQuery实现轮播图</a></li>
+							<li><a rel="external nofollow" href="https://fifththirteen.github.io/banner_transition/demo-transition.html" title="jQuery实现轮播图,css3-transition实现动画" target="_blank">jQuery实现轮播图,css3-transition实现动画</a></li>
+							<li><a rel="external nofollow" href="https://fifththirteen.github.io/banner_transition/demo-background.html" title="jQuery实现轮播图-背景图" target="_blank">jQuery实现轮播图-背景图</a></li>
+						</ul>
+					</li>
+					<li><a rel="external nofollow" href="https://fifththirteen.github.io/tabSwitch/index.html" title="js选项卡" target="_blank">js选项卡</a></li>
+					<li><a rel="external nofollow" href="https://fifththirteen.github.io/scrollUp/scroll-up.html" title="js文字向上无缝滚动" target="_blank">js文字向上无缝滚动</a></li>
+					<li><a rel="external nofollow" href="https://fifththirteen.github.io/scrollUp/scroll-up-delay.html" title="js文字延时向上无缝滚动" target="_blank">js文字延时向上无缝滚动</a></li>
+				</ul>
+			</li>
+			<li><a rel="external nofollow" href="https://fifththirteen.github.io/dfj/" title="鼎丰居Demo" target="_blank">5.&nbsp;&nbsp;&nbsp;鼎丰居Demo</a></li> -->
+		</ul>
+		<div class="aside" id="go_to_top">
+			<a rel="external nofollow" href="javascript:;" title="回到顶部" ></a>
+		</div>
+	</div>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/index.js"></script>
+	<script type="text/javascript">
+		var XHR = new XMLHttpRequest();
+		XHR.open("GET","data/index.json",false);
+		XHR.send();
+		var obj = JSON.parse(XHR.responseText);
+		console.log(obj[0].name);
+	</script>
+</body>
+</html>
