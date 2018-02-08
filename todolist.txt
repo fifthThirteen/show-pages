@@ -1,0 +1,91 @@
+编程=数据结构+算法
+JS设计模式 单例 简单工厂 观察者模式 ！！！！！！！！！！！！！！！！！！！！
+面向过程封装 面向对象封装 ！！！！！！！！！！！！！！！！！！！！
+递归
+
+
+《JavaScript高级程序设计》
+loading
+天气
+第三方帐号登录
+城市列表
+右侧边栏
+插件封装
+数据json传输
+vue！！！！！！！！！！！！！！！！
+angular !!!!!!!!!!
+前端支付
+node
+验证码
+选择时间插件
+输入框输入自动匹配
+Prototype原型
+css/JavaScript性能优化、解决多浏览器兼容性问题
+微信扫码
+
+a && b : 将a, b转换为Boolean类型, 再执行逻辑与,         a =true返回b,继续执行下一个逻辑， a=false返回a ，不再继续执行
+a || b : 将a, b转换为Boolean类型, 再执行逻辑或,与与相反， a=true返回a,不再继续执行， a=false返回b，继续执行下一个逻辑 
+
+
+二、动态脚本标签插入
+      该技术克服了XHR的最大限制：它可以从不同域的服务器上获取数据。这是一种黑客技术，而不是实例化一个专用对象，你用JavaScript创建了一个新脚本标签，并将它的源属性设置为一个指向不同域的URL。
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'http://any-domain.com/javascript/lib.js';
+      document.getElementsByTagName_r('head')[0].appendChild(scriptElement);
+      但是动态脚本标签插入与XHR相比只提供更少的控制。你不能通过请求发送信息头。参数只能通过GET方法传递，不能用POST。你不能设置请求的超时或重试，实际上，你不需要知道它是否失败了。你必须等待所有数据返回之后才可以访问它们。你不能访问响应信息头或者像访问字符串那样访问整个响应报文。
+      最后一点非常重要。因为响应报文被用作脚本标签的源码，它必须是可执行的JavaScript。你不能使用裸XML，或者裸JSON，任何数据，无论什么格式，必须在一个回调函数之中被组装起来。
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'http://any-domain.com/javascript/lib.js';
+      document.getElementsByTagName_r('head')[0].appendChild(scriptElement);
+      function jsonCallback(jsonString) {
+            var data = ('(' + jsonString + ')');
+      }
+      在这个例子中，lib.js 文件将调用jsonCallback 函数组装数据：
+      jsonCallback({ "status": 1, "colors": [ "#fff", "#000", "#ff0000" ] });
+      尽管有这些限制，此技术仍然非常迅速。其响应结果是运行JavaScript，而不是作为字符串必须被进一步处理。正因为如此，它可能是客户端上获取并解析数据最快的方法。我们比较了动态脚本标签插入和XHR的性能，在本章后面JSON 一节中。
+      请小心使用这种技术从你不能直接控制的服务器上请求数据。JavaScript没有权限或访问控制的概念，所以你的页面上任何使用动态脚本标签插入的代码都可以完全控制整个页面。包括修改任何内容、将用户重定向到另一个站点，或跟踪他们在页面上的操作并将数据发送给第三方。使用外部来源的代码时务必非常小心。
+
+http://www.jb51.net/article/46604.htm
+
+
+其实那些：new foo({a:'a',b:'b'})，还有采用默认值的，也没什么神奇的，就是只传一个参数进去，这个参数是一个json:
+
+    function Foo(json){
+        /*如果json.a不存在，那就将0赋值给this.a,这样就达到了采用默认值的结果*/
+        this.a=json.a||0,
+        this.b=json.b||0
+    }
+再啰嗦一点，面向对象的一个优点在于：专注。
+比如开发一个弹窗插件，把这个弹窗当成对象，那么这个弹窗具有：
+
+属性：
+弹窗内容
+弹窗窗口长度
+弹窗窗口高度
+方法：
+打开弹窗
+关闭弹窗
+一切对象之所以是对象，就是因为它存在自己的属性和方法，不然即使成为的对象也是白搭。
+所以：
+
+    function _Alert(json){
+        /*假设下面这个是弹窗的窗口*/
+        this.win=document.getElementById('#demoWin');
+        this.w=json.w||200;
+        this.h=json.h||150;
+        this.content=json.content||'';
+        this.win.style.height=this.h+'px';
+        this.win.style.width=this.w+'px'
+    }
+    _Alert.prototype.open=function(){
+        //open code
+    }
+    _Alert.prototype.close=function(){
+        //close code
+    }
+    
+    new _Alert({
+        h:100,
+        w:50,
+        content:'this is content'    
+    }).open()

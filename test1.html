@@ -56,11 +56,77 @@
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/index.js"></script>
 	<script type="text/javascript">
-		var XHR = new XMLHttpRequest();
-		XHR.open("GET","data/index.json",false);
-		XHR.send();
-		var obj = JSON.parse(XHR.responseText);
-		console.log(obj[0].name);
+		function first(id,name,url) {
+			this.id = id;
+			this.name = name;
+			this.url = url;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+	 var scriptElement = document.createElement('script');
+	 scriptElement.src = 'data/index_json.js';
+	 var s = document.getElementsByTagName('script')[0];
+	 insertAfter(scriptElement,s);
+
+     function jsonCallback(data) {
+     	var main_list = document.getElementById('main_list');
+     	for (var i = 0; i < data.length; i++) {
+     		var html;
+     		var htmlSpan = "<span><i></i>"+(i+1)+".&nbsp;&nbsp;&nbsp;"+data[i].name+"</span>";
+ 			var htmlListart = "<li class='parent_li'>";
+ 			var htmlUlstart = "<ul class='hidden'>";
+ 			var htmlUlend ="</ul>";
+ 			var htmlLiend = "</li>";
+     		if (data[i].submenu != undefined) {
+     			for (var j = 0; j < data[i].submenu.length;j++) {
+     				var htmlSpan2 = "<span><i></i>"+data[i].submenu[j].name+"</span>";
+     				if (data[i].submenu[j].submenu != undefined) {
+     					html = htmlListart + htmlSpan2 + htmlUlstart + htmlUlend +htmlLiend;
+	     				// for (var k = 0;  k < data[i].submenu[j].submenu; k++) {
+
+	     				// }
+     				} else {
+     					html = htmlListart + htmlSpan2 + htmlLiend;
+     				}
+     				// console.log(data[i].submenu[j].submenu);
+     			}
+     			// for (var j = 0; j < data[i].submenu.length; j++) {
+	     		// 	if (data[i].submenu[j].submenu != undefined) {
+	     		// 			var html2 = "<li class='parent_li'><span><i></i>"+data[i].submenu[j].name+"</span>"+
+								// 		"<ul class='hidden'>"+
+								// 			"<li><a rel='external nofollow' href='"+data[i].submenu[j].submenu.url+"' title='"+data[i].submenu[j].submenu.name+"' target='_blank'>"+data[i].submenu[j].submenu.name+"</a></li>"+
+								// 		"</ul>"+
+								// 	"</li>";
+	     		// 	} else {
+	     		// 		var html2 = "<a rel='external nofollow' href='"+data[i].submenu[j].url+"' title='"+data[i].submenu[j].name+"' target='_blank'>"+data[i].submenu[j].name+"</a>";
+	     		// 	}
+	     		// }	  
+     		} else {
+				var html = "<li><a rel='external nofollow' href='"+data[i].url+"' title='"+data[i].name+"' target='_blank'>"+(i+1)+".&nbsp;&nbsp;&nbsp;"+data[i].name+"</a></li>";
+     		}
+	     	main_list.innerHTML += html;
+     	};
+             // console.log(JSON.stringify(data));
+     }
+
+     function insertAfter(newElement,targetElement) {
+		  var parent = targetElement.parentNode;
+		  if (parent.lastChild == targetElement) {
+		    parent.appendChild(newElement);
+		  } else {
+		    parent.insertBefore(newElement,targetElement.nextSibling);
+		  }
+	}
 	</script>
 </body>
 </html>

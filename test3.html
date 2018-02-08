@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+ // function Person(id,name){
+ // 	this.id = id;
+ // 	this.name = name;
+ // }
+ function Student(name,subject) {
+ 	this.name = name;
+ 	this.subject = subject;
+ }
+ Student.prototype.study = function() {
+ 	console.log(this.name + " study " + this.subject);
+ }
+ // var student1 = new Student("Wen","English");
+ // student1.study();
+
+ function Pupil(name,subject,school) {
+ 	Student.call(this,name,subject);
+ 	this.school = school;
+ }
+
+ Pupil.prototype = Object.create(Student.prototype);
+ Pupil.prototype.constructor = Pupil;
+
+ // Pupil.prototype.study = function() {
+ // 	console.log("I'm " + this.name + ". I am studying " + this.subject+" and I am from " + this.school);
+ // }
+
+ var xiaoxuesheng = new Pupil("web","yuwen","fuxiao");
+ xiaoxuesheng.study();
+ function createObject(proto) {
+ 	function ctor(){};
+ 	ctor.prototype = proto;
+ 	return new ctor();
+ }
+</script>
+</body>
+</html>
