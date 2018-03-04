@@ -56,23 +56,11 @@
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/index.js"></script>
 	<script type="text/javascript">
-		function first(id,name,url) {
-			this.id = id;
-			this.name = name;
-			this.url = url;
-		}
-
-
-
-
-
-
-
-
-
-
-
-
+		// function first(id,name,url) {
+		// 	this.id = id;
+		// 	this.name = name;
+		// 	this.url = url;
+		// }
 	 var scriptElement = document.createElement('script');
 	 scriptElement.src = 'data/index_json.js';
 	 var s = document.getElementsByTagName('script')[0];
@@ -81,42 +69,38 @@
      function jsonCallback(data) {
      	var main_list = document.getElementById('main_list');
      	for (var i = 0; i < data.length; i++) {
-     		var html;
-     		var htmlSpan = "<span><i></i>"+(i+1)+".&nbsp;&nbsp;&nbsp;"+data[i].name+"</span>";
- 			var htmlListart = "<li class='parent_li'>";
- 			var htmlUlstart = "<ul class='hidden'>";
- 			var htmlUlend ="</ul>";
- 			var htmlLiend = "</li>";
-     		if (data[i].submenu != undefined) {
-     			for (var j = 0; j < data[i].submenu.length;j++) {
-     				var htmlSpan2 = "<span><i></i>"+data[i].submenu[j].name+"</span>";
-     				if (data[i].submenu[j].submenu != undefined) {
-     					html = htmlListart + htmlSpan2 + htmlUlstart + htmlUlend +htmlLiend;
-	     				// for (var k = 0;  k < data[i].submenu[j].submenu; k++) {
-
-	     				// }
-     				} else {
-     					html = htmlListart + htmlSpan2 + htmlLiend;
-     				}
-     				// console.log(data[i].submenu[j].submenu);
-     			}
-     			// for (var j = 0; j < data[i].submenu.length; j++) {
-	     		// 	if (data[i].submenu[j].submenu != undefined) {
-	     		// 			var html2 = "<li class='parent_li'><span><i></i>"+data[i].submenu[j].name+"</span>"+
-								// 		"<ul class='hidden'>"+
-								// 			"<li><a rel='external nofollow' href='"+data[i].submenu[j].submenu.url+"' title='"+data[i].submenu[j].submenu.name+"' target='_blank'>"+data[i].submenu[j].submenu.name+"</a></li>"+
-								// 		"</ul>"+
-								// 	"</li>";
-	     		// 	} else {
-	     		// 		var html2 = "<a rel='external nofollow' href='"+data[i].submenu[j].url+"' title='"+data[i].submenu[j].name+"' target='_blank'>"+data[i].submenu[j].name+"</a>";
-	     		// 	}
-	     		// }	  
-     		} else {
-				var html = "<li><a rel='external nofollow' href='"+data[i].url+"' title='"+data[i].name+"' target='_blank'>"+(i+1)+".&nbsp;&nbsp;&nbsp;"+data[i].name+"</a></li>";
-     		}
-	     	main_list.innerHTML += html;
-     	};
-             // console.log(JSON.stringify(data));
+	   		var temp = data[i];
+	   		var hasChild = temp.submenu;
+	   		if (!hasChild) {
+	   			var li = "<li><a href='"+data[i].url+"'>"+(i+1)+'.&nbsp;&nbsp;&nbsp;'+data[i].name+"</a>";
+	   		} else {
+	   			var li = "<li class='parent_li'>"+'<span><i></i>'+(i+1)+'.&nbsp;&nbsp;&nbsp;'+data[i].name+"</span>";
+	   			li += "<ul class='hidden'>";
+	   			for (var j=0;j<hasChild.length;j++) {
+	   				// debugger
+	   				var liChild = hasChild[j].submenu;	   				
+	   				var li1;
+	   				if (!liChild) {
+	   					li1 = "<li><a href='"+hasChild[j].url+"'>"+hasChild[j].name+"</a></li>";
+	   				} else {
+	   					li1 = "<li class='parent_li'>"+'<span><i></i>'+'&nbsp;&nbsp;&nbsp;'+hasChild[j].name+"</span>";
+	   					li1 += "<ul class='hidden'>";
+	   					for (var k = 0; k < liChild.length;k++) {
+	   						// debugger;
+	   						console.log(liChild[k].name);
+	   						var li2 = "<li><a href='"+liChild[k].url+"'>"+liChild[k].name+"</a></li>";
+	   						li1 += li2;
+	   					}
+	   					li1 += "</ul></li>";
+	   				}
+	   				li += li1;
+	   			}
+	   			li += "</ul>";
+	   		}
+	   		var liEnd = "</li>";
+	   		main_list.innerHTML += (li+liEnd);
+     	}
+     	
      }
 
      function insertAfter(newElement,targetElement) {
