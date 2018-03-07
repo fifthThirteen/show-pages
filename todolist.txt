@@ -10,6 +10,7 @@ loading
 第三方帐号登录
 城市列表
 右侧边栏
+面向对象
 插件封装
 数据json传输
 vue！！！！！！！！！！！！！！！！
@@ -22,6 +23,11 @@ node
 Prototype原型
 css/JavaScript性能优化、解决多浏览器兼容性问题
 微信扫码
+支付
+h5:canvas
+爬虫，SEO
+垂直时间轴
+
 
 a && b : 将a, b转换为Boolean类型, 再执行逻辑与,         a =true返回b,继续执行下一个逻辑， a=false返回a ，不再继续执行
 a || b : 将a, b转换为Boolean类型, 再执行逻辑或,与与相反， a=true返回a,不再继续执行， a=false返回b，继续执行下一个逻辑 
@@ -89,3 +95,11 @@ http://www.jb51.net/article/46604.htm
         w:50,
         content:'this is content'    
     }).open()
+
+
+
+
+1.html
+2.css
+3.js
+4.plugin

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var O2String = function (O) {
+        //return JSON.stringify(jsonobj);
+
+        var S = [];
+        var J = "";
+        if (Object.prototype.toString.apply(O) === '[object Array]') {
+            for (var i = 0; i < O.length; i++)
+                S.push(O2String(O[i]));
+            J = '[' + S.join(',') + ']';
+        }
+        else if (Object.prototype.toString.apply(O) === '[object Date]') {
+            J = "new Date(" + O.getTime() + ")";
+        }
+        else if (Object.prototype.toString.apply(O) === '[object RegExp]' || Object.prototype.toString.apply(O) === '[object Function]') {
+            J = O.toString();
+        }
+        else if (Object.prototype.toString.apply(O) === '[object Object]') {
+            for (var i in O) {
+                O[i] = typeof (O[i]) == 'string' ? '"' + O[i] + '"' : (typeof (O[i]) === 'object' ? O2String(O[i]) : O[i]);
+                S.push(i + ':' + O[i]);
+            }
+            J = '{' + S.join(',') + '}';
+        }
+
+        return J;
+    };
+
+
+
+/*-----------------------以下是测试代码-----------------------*/
+
+var jsonStr = O2String(
+                [
+                    {
+                        "Page": "plan",
+                        "Custom":
+                        [
+                            {
+                                "ItemName": "CustomLabel1",
+                                "ItemContent": 1, 
+                                "IsItem": true,
+                                "ItemDate": new Date(1320774905467),
+                                "ItemReg": /[\w]*?/gi,
+                                "ItemFunc": function () { alert("ItemFunc"); }
+                            },
+                            {
+                                "ItemName": "CustomLabel1",
+                                "ItemContent": 1,
+                                "IsItem": true,
+                                "ItemDate": new Date(1320774905467),
+                                "ItemReg": /[\w]*?/gi,
+                                "ItemFunc": function () { alert("ItemFunc"); }
+                            }
+                        ]
+                    },
+                    {
+                        "Page": "project",
+                        "Custom":
+                        [
+                            {
+                                "ItemName": "CustomLabel2",
+                                "ItemContent": 2,
+                                "IsItem": false,
+                                "ItemDate": new Date(1320774905467),
+                                "ItemReg": /[\w]*?/gi,
+                                "ItemFunc": function () { alert("ItemFunc"); }
+                            },
+                            {
+                                "ItemName": "CustomLabel2",
+                                "ItemContent": 2,
+                                "IsItem": false,
+                                "ItemDate": new Date(1320774905467),
+                                "ItemReg": /[\w]*?/gi,
+                                "ItemFunc": function () { alert("ItemFunc"); }
+                            }
+                        ]
+                    }
+                ]
+            );
+            alert(jsonStr);
+            var jsonObj = eval("(" + jsonStr + ")");
+            alert(jsonObj.length);
+</script>
+</body>
+</html>
